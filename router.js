@@ -18,7 +18,7 @@ router.get('/users/me',auth, async(req,res)=>{
 
 router.post('/users',async(req,res)=>{
        const task = new Task(req.body)
-    const token1 = await task.generateAuthToken()
+     await task.generateAuthToken()
     task.save().then(() =>{
 
         res.send({task,token1})
@@ -160,11 +160,10 @@ const main = async()=>{
 
 
 const multer = require('multer')
-
 const upload = multer({
    
     limits : {
-        fileSize : 1000000
+        fileSize : 10000000
     },
 
     fileFilter(req,file,cb){

@@ -4,8 +4,12 @@
   "description": "",
   "main": "resorce_creation.js",
   "scripts": {
-    "start" : "node resorce_creation.js",
-    "dev": "env-cmd ./config/dev.env nodemon resorce_creation.js"
+    "start": "node resorce_creation.js",
+    "dev": "env-cmd ./config/dev.env nodemon resorce_creation.js",
+    "test": "env-cmd ./config/dev.env jest --watch"
+  },
+  "jest": {
+    "testEnvirnment": "node"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +22,13 @@
     "mongoose": "^5.3.16",
     "multer": "^1.4.2",
     "sharp": "^0.25.4",
-    "validator": "^13.0.0"
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "env-cmd": "^8.0.2",
+    "jest": "^23.6.0",
     "nodemon": "^2.0.4",
+    "supertest": "^3.4.1",
     "webpack-dev-server": "^3.11.0"
   }
 }

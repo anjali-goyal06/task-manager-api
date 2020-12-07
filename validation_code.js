@@ -60,9 +60,7 @@ userSchema.statics.findByCredentials = async(email,password)=>{
         throw new Error('unable to login')
     }
    
-    console.log("pass current = "+password)
     const isMatch = await bcrypt.compare(password,task1.password)
-    console.log("ismatch = "+isMatch)
     if(!isMatch){
         throw new Error('unable to login')
     }
@@ -85,7 +83,6 @@ userSchema.pre('save',async function(next){
  
     if(taskk.isModified('password')){
         taskk.password = await bcrypt.hash(taskk.password,8)
-        console.log("bhainkar")
     }
     next()
 })
